@@ -28,7 +28,7 @@ resource "aws_lambda_permission" "allow_s3" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.image_processor.function_name
   principal     = "s3.amazonaws.com"
-  source_arn    = "arn:aws:s3:::source-bucket-images1111121"
+  source_arn    = "arn:aws:s3:::source-bucket-8055"
 }
 
 
