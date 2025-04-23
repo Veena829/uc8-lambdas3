@@ -4,8 +4,8 @@ provider "aws" {
 
 module "s3_buckets" {
   source              = "./modules/s3"
-  #lambda_function_arn = module.lambda_function.lambda_function_arn
-  #lambda_permission_id = module.lambda_function.lambda_permission_id
+  lambda_function_arn = module.lambda_function.lambda_function_arn
+  lambda_permission_id = module.lambda_function.lambda_permission_id
 }
 
 module "iam_role" {
