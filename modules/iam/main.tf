@@ -1,5 +1,5 @@
-resource "aws_iam_role" "lambda_execution_role" {
-  name = "lambda_execution_role" # Ensure this name is valid
+resource "aws_iam_role" "lambda_exec_role_new" {
+  name = "lambda_exec_role_new" # Ensure this name is valid
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
