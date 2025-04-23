@@ -1,11 +1,11 @@
 # Define the source bucket
 resource "aws_s3_bucket" "source_bucket" {
-  bucket = "source-bucket-images1111121"
+  bucket = "source-bucket-8055"
 }
 
 # Define the destination bucket
 resource "aws_s3_bucket" "destination_bucket" {
-  bucket = "destination-bucket-images11121"
+  bucket = "source-bucket-8055"
 }
 
 # Add Lambda permission to allow S3 to invoke the Lambda function
