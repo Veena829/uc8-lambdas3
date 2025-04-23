@@ -1,21 +1,20 @@
 provider "aws" {
-  region = var.aws_region
+  region = var.region
 }
 
-module "iam" {
-  source = "./iam"
+module "s3_buckets" {
+  source              = "./modules/s3"
+  lambda_function_arn = module.lambda_function.lambda_function_arn
+  lambda_permission_id = module.lambda_function.lambda_permission_id
 }
 
-module "lambda" {
-  source = "./lambda"
-  lambda_function_name = var.lambda_function_name
-  lambda_role_arn      = module.iam.lambda_role_arn
-  s3_bucket            = module.s3.source_bucket_name
-  s3_processed_bucket  = module.s3.processed_bucket_name
+module "iam_role" {
+  source = "./modules/iam"
 }
 
-module "s3" {
-  source = "./s3"
-  source_bucket_name    = var.source_bucket_name
-  processed_bucket_name = var.processed_bucket_name
+module "lambda_function" {
+  source             = "./modules/lambda"
+  s3_bucket          = module.s3_buckets.source_bucket_name
+  destination_bucket = module.s3_buckets.destination_bucket_name
+  iam_role_arn       = module.iam_role.iam_role_arn
 }
