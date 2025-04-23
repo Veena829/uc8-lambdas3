@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "destination_bucket" {
 
 # Add Lambda permission to allow S3 to invoke the Lambda function
 resource "aws_lambda_permission" "allow_s3" {
-  statement_id  = "AllowExecutionFromS3"
+  statement_id  = "AllowExecutionFromS3_v2"
   action        = "lambda:InvokeFunction"
   function_name = var.lambda_function_arn
   principal     = "s3.amazonaws.com"
