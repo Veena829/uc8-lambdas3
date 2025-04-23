@@ -14,16 +14,7 @@ resource "aws_lambda_function" "image_processor" {
   }
 }
 
-  # depends_on = [
-  #   aws_iam_role_policy_attachment.lambda_policy_attachment
-  # ]
-}
-
-# resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
-#   role       = var.iam_role_arn
-#   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-# }
-
+  
 resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowExecutionFromS3"
   action        = "lambda:InvokeFunction"
