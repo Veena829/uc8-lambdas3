@@ -1,11 +1,8 @@
-variable "source_bucket_name" {
-  description = "Name of the source S3 bucket"
+variable "lambda_function_arn" {
+  description = "The ARN of the Lambda function to be triggered by the S3 bucket"
   type        = string
-  default     = "source-bucket"
 }
-
-variable "processed_bucket_name" {
-  description = "Name of the processed S3 bucket"
-  type        = string
-  default     = "processed-bucket"
+# filepath: /workspaces/AssistedProjects/use-case/UC-8-Lambda-S3/modules/s3/variables.tf
+variable "lambda_permission_id" {
+  description = "ID of the Lambda permission resource"
 }
